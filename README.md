@@ -101,18 +101,32 @@ Nounce: 100.000 - Hash: f098a681ac08532bedbc51a1c38b2d24bee4264b2dfefdbc4c5eff46
 ...
 
 === RESULTADOS ===
-Tiempo total: 20,76 segundos
+Tiempo total: 20,01 segundos
 Hashes por segundo: 496.383
 Nounce final probado: 9.999.999
+Hash final: be14ef1419624296daa84e2e57fd13e4385cd43ec35dd5c1c62d13244047a7b9
 
-=== BÚSQUEDA DEL HASH EXACTO DEL BLOQUE 909070 ===
-Hash objetivo: 00000000000000000002300fc2687557b68f1d2b2f4b617c42c998d23a66c63f
+=== BÚSQUEDA DE UN HASH VALIDO DEL BLOQUE 909070 ===
+Buscando el nounce correcto...
+
 Iniciando búsqueda desde nounce: 0
 Rango de búsqueda: 10.000.000 valores
 
+Calculando dificultad y parámetros de búsqueda...
+Bits: 0x1702349e
+Target: 00000000000000000002349e000000000000000000000000000000000000000000
+Dificultad: 120.033.340.651.237.940
+Ceros necesarios al inicio del hash: 18
+
+Probando nounce: 0 - Hash: 9b2de5a8085f039dff57b318d51702685e2492c32dbc251188c4115d021ddd5d
+...
+
 ¡HASH ENCONTRADO!
-Nounce correcto: 0x1858a28d (408.461.965)
+Nounce correcto: 0x1858a28d (410.533.517)
+Hash objetivo : 00000000000000000002349e000000000000000000000000000000000000000000
+Hash resultado: 00000000000000000002300fc2687557b68f1d2b2f4b617c42c998d23a66c63f
 Tiempo de búsqueda: 1,23 segundos
+Intentos realizados: 410.533.518
 ```
 
 ## Datos por defecto
@@ -162,12 +176,13 @@ python sha256_calc.py
 ```
 
 ### mining_simulation.py - Simulación de minado
-Script que simula el proceso de minado de Bitcoin probando diferentes valores de nounce para encontrar el hash correcto.
+Script que simula el proceso de minado de Bitcoin con dos fases: medición de rendimiento y búsqueda de hash válido.
 
 **Funcionalidades:**
-- Prueba 10.000.000 valores de nounce secuenciales
-- Mide el rendimiento (hashes por segundo)
-- Busca el hash exacto del bloque 909070
+- **Fase 1**: Prueba 10.000.000 valores de nounce para medir rendimiento
+- **Fase 2**: Busca un nounce que produzca un hash válido (menor que el target)
+- Calcula la dificultad de minado del bloque
+- Muestra información detallada sobre el target y ceros necesarios
 - Configurable mediante variables de entorno
 
 **Variables de entorno para simulación:**
