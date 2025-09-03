@@ -2,6 +2,28 @@
 
 Todas las modificaciones importantes de este proyecto serán documentadas en este archivo.
 
+## [0.0.3](https://github.com/cmdearcos/bitcoin-header-tools/releases/tag/0.0.3) - Generador de wallets Bitcoin P2PKH
+
+### Agregado
+- **Nuevo script `bitcoin_wallet_p2pkh.py`**: Generador de wallets Bitcoin P2PKH
+  - Genera wallets completas (clave privada, pública y dirección)
+  - Convierte claves públicas comprimidas a direcciones
+  - Soporta generación múltiple de wallets
+  - Exporta resultados en formato JSON
+  - Muestra todos los pasos del proceso (SHA256, Hash160, checksum)
+  - Opciones de línea de comandos con argparse
+- **Archivo `requirements.txt`**: Gestión centralizada de dependencias
+  - `python-dotenv` para archivos .env
+  - `ecdsa` para criptografía de curvas elípticas
+  - `base58` para codificación de direcciones Bitcoin
+
+### Mejorado
+- **Documentación actualizada** en `README.md`:
+  - Sección del nuevo script bitcoin_wallet_p2pkh.py
+  - Instrucciones de instalación con requirements.txt
+  - Ejemplos de uso del generador de wallets
+  - Lista de archivos del proyecto actualizada
+
 ## [0.0.2](https://github.com/cmdearcos/bitcoin-header-tools/releases/tag/0.0.2) - Simulación de minado
 
 ### Agregado
