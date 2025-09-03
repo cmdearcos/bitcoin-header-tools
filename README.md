@@ -35,11 +35,11 @@ Cada bloque de Bitcoin tiene una **cabecera** con 6 campos importantes:
 
 ### Requisitos
 - Python 3.6 o superior
-- Librería `python-dotenv`
+- Librerías: `python-dotenv`, `ecdsa`, `base58`
 
 ### Instalación
 ```bash
-pip install python-dotenv
+pip install -r requirements.txt
 ```
 
 ### Configuración
@@ -73,6 +73,11 @@ python sha256_calc.py
 **Para simular el proceso de minado:**
 ```bash
 python mining_simulation.py
+```
+
+**Para generar wallets Bitcoin:**
+```bash
+python bitcoin_wallet_p2pkh.py
 ```
 
 ## Ejemplos de salida
@@ -200,9 +205,36 @@ NOUNCE_START=0x1858a28a
 NOUNCE_RANGE=10000000
 ```
 
+### bitcoin_wallet_p2pkh.py - Generador de wallets Bitcoin
+Script que genera direcciones Bitcoin P2PKH (Pay-to-Public-Key-Hash) completas con claves privadas y públicas.
+
+**Funcionalidades:**
+- Genera wallets Bitcoin completas (clave privada, pública y dirección)
+- Convierte claves públicas comprimidas a direcciones
+- Soporta generación múltiple de wallets
+- Exporta resultados en formato JSON
+- Muestra todos los pasos del proceso (SHA256, Hash160, checksum)
+
+**Opciones de ejecución:**
+```bash
+# Generar una wallet
+python bitcoin_wallet_p2pkh.py
+
+# Generar múltiples wallets
+python bitcoin_wallet_p2pkh.py -n 5
+
+# Guardar en archivo
+python bitcoin_wallet_p2pkh.py -o wallets.json
+
+# Generar dirección desde clave pública
+python bitcoin_wallet_p2pkh.py --from-pubkey 0279BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798
+```
+
 ## Archivos del proyecto
 - `sha256_calc.py` - Script calculadora de hash
 - `mining_simulation.py` - Script de simulación de minado
+- `bitcoin_wallet_p2pkh.py` - Generador de wallets Bitcoin P2PKH
+- `requirements.txt` - Dependencias del proyecto
 - `.env` - Configuración de variables (crear desde .env.example)
 - `.env.example` - Ejemplo de configuración con datos del bloque 909070
 - `README.md` - Este archivo de documentación

@@ -1,0 +1,8 @@
+# Dependencias para todos los scripts del proyecto Bitcoin Hash Calculator
+
+# Para sha256_calc.py y mining_simulation.py
+python-dotenv>=1.0.0
+
+# Para bitcoin_wallet_p2pkh.py
+ecdsa>=0.18.0
+base58>=2.1.0
